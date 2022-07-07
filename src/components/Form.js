@@ -17,7 +17,7 @@ function Form() {
     lastName: "",
     contact: "",
     nationality: "",
-    other: "",
+    gender: "",
   });
 
   const FormTitles = ["SignUp", "Personal Info", "Other"];
@@ -28,7 +28,7 @@ function Form() {
     } else if (page === 1) {
       return <PersonalInfo formData={formData} setFormData={setFormData} />;
     } else {
-      return <OtherInfo />;
+      return <OtherInfo formData={formData} setFormData={setFormData} />;
     }
   };
 
@@ -56,12 +56,16 @@ function Form() {
             Prev
           </button>
           <button
-            disabled={page === FormTitles.length - 1}
             onClick={() => {
-              setPage((currPage) => currPage + 1);
+              if (page === FormTitles.length - 1) {
+                alert("form submitted!");
+                console.log(formData);
+              } else {
+                setPage((currPage) => currPage + 1);
+              }
             }}
           >
-            Next
+            {page === FormTitles.length - 1 ? "Submit" : "Next"}
           </button>
         </div>
       </div>
