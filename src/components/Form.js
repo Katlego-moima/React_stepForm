@@ -24,7 +24,13 @@ function Form() {
 
   return (
     <div className="form">
-      <div className="progressbar"></div>
+      <div className="progressbar">
+        <div
+          style={{
+            width: page === 0 ? "33.3%" : page === 1 ? "66.6%" : "100%",
+          }}
+        ></div>
+      </div>
       <div className="form-container">
         <div className="header">
           <h1>{FormTitles[page]}</h1>

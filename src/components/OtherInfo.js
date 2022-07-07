@@ -1,7 +1,12 @@
 import React from "react";
 
 function OtherInfo() {
-  return <div>Other Information</div>;
+  return (
+    <div className="other-info-container">
+      <input type="text" placeholder="Nationality" />
+      <input type="text" placeholder="Gender" />
+    </div>
+  );
 }
 
 export default OtherInfo;
