@@ -9,14 +9,24 @@ function Form() {
   //displaying form titles based on states
 
   const [page, setPage] = useState(0);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+    firstName: "",
+    lastName: "",
+    contact: "",
+    nationality: "",
+    other: "",
+  });
 
   const FormTitles = ["SignUp", "Personal Info", "Other"];
 
   const PageDisplay = () => {
     if (page === 0) {
-      return <SignUpInfo />;
+      return <SignUpInfo formData={formData} setFormData={setFormData} />;
     } else if (page === 1) {
-      return <PersonalInfo />;
+      return <PersonalInfo formData={formData} setFormData={setFormData} />;
     } else {
       return <OtherInfo />;
     }
